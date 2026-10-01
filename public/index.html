@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TTGODMODE — Download TikTok videos without watermark and randomize metadata for unique content">
+  <title>TTGODMODE — TikTok Download + Meta Randomizer</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <!-- Decorative Background Blobs -->
+  <div class="bg-decor">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header" id="appHeader">
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <h1>TT<span class="highlight">GODMODE</span></h1>
+      </div>
+      <p>Download TikTok videos without watermark and randomize metadata instantly</p>
+      <div class="header-pills">
+        <span class="header-pill">🎬 HD Quality</span>
+        <span class="header-pill">🚫 No Watermark</span>
+        <span class="header-pill">🎲 Meta Randomizer</span>
+        <span class="header-pill">📱 Device Spoof</span>
+        <span class="header-pill">📦 Bulk Download</span>
+      </div>
+    </header>
+
+    <!-- Mode Tabs -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="tiktok">
+        <span class="tab-icon">🎵</span>
+        <span class="tab-text">TikTok Download</span>
+      </button>
+      <button class="mode-tab" data-mode="upload">
+        <span class="tab-icon">📤</span>
+        <span class="tab-text">Upload & Randomize</span>
+      </button>
+      <button class="mode-tab" data-mode="metadata">
+        <span class="tab-icon">🔍</span>
+        <span class="tab-text">Check Metadata</span>
+      </button>
+      <button class="mode-tab" data-mode="devicespoof">
+        <span class="tab-icon">📱</span>
+        <span class="tab-text">Device Spoof</span>
+      </button>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card">
+      <!-- ============ TIKTOK MODE ============ -->
+      <div class="mode-content" id="tiktokMode">
+        <!-- Input Section -->
+        <div class="input-section">
+          <label class="input-label">
+            <span class="icon">🔗</span>
+            Paste TikTok URLs (one per line)
+          </label>
+          <textarea
+            id="urlInput"
+            class="url-textarea"
+            placeholder="https://www.tiktok.com/@user/video/1234567890 | save_as_name&#10;https://www.tiktok.com/@user/video/0987654321 | another_name&#10;https://vt.tiktok.com/XXXXXXXX/&#10;&#10;Paste your TikTok video links here... (optional: add | save_name per line)"
+            spellcheck="false"
+          ></textarea>
+          <div class="url-counter">
+            <span><span class="count" id="urlCount">0</span> URLs detected</span>
+            <span class="tag-hint" id="tagHint"><span class="tag-icon">🏷️</span> Use <code>| name</code> for custom save name</span>
+            <button class="btn btn-secondary btn-icon" id="clearBtn" title="Clear all">🗑️</button>
+          </div>
+        </div>
+
+        <!-- Metadata Toggle Section -->
+        <div class="meta-toggle-section" id="metaToggleSection">
+          <div class="meta-toggle-header">
+            <div class="meta-toggle-info">
+              <div class="meta-toggle-title">
+                <span class="meta-icon">🎲</span>
+                <span>Randomize Metadata</span>
+                <span class="meta-badge" id="metaBadge">OFF</span>
+              </div>
+              <p class="meta-toggle-desc">Re-encode video with unique metadata for each file</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="metaToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- Techniques Accordion -->
+          <div class="meta-techniques hidden" id="metaTechniques">
+            <div class="techniques-grid">
+              <div class="technique-item">
+                <span class="tech-icon">👤</span>
+                <span class="tech-name">Random Author</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">🏷️</span>
+                <span class="tech-name">Hidden Tags</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">📝</span>
+                <span class="tech-name">Title Spin</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">📄</span>
+                <span class="tech-name">Shuffle Description</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">⏰</span>
+                <span class="tech-name">Timestamp Shift</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">#️⃣</span>
+                <span class="tech-name">Hash Trick</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">🎬</span>
+                <span class="tech-name">Encoding Jitter</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">📡</span>
+                <span class="tech-name">Noise Injection</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">🔲</span>
+                <span class="tech-name">Pixel Shift</span>
+              </div>
+              <div class="technique-item">
+                <span class="tech-icon">🎵</span>
+                <span class="tech-name">Audio Pitch ±0.01</span>
+              </div>
+            </div>
+
+            <!-- Device Spoof Integration -->
+            <div class="tt-device-spoof">
+              <div class="meta-toggle-header">
+                <div class="meta-toggle-info">
+                  <div class="meta-toggle-title">
+                    <span class="meta-icon">📱</span>
+                    <span>Device Spoof</span>
+                    <span class="meta-badge" id="ttDeviceBadge">OFF</span>
+                  </div>
+                  <p class="meta-toggle-desc">Langsung tulis metadata device (iPhone 11–17 Pro Max / Google Pixel) ke video hasil download</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="ttDeviceToggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="device-spoof-panel hidden" id="ttDevicePanel">
+                <div class="device-brand-tabs">
+                  <button class="device-brand-tab active" data-ttbrand="iphone">🍎 iPhone</button>
+                  <button class="device-brand-tab" data-ttbrand="pixel">🤖 Google Pixel</button>
+                </div>
+                <div class="device-grid" id="ttDeviceGrid"></div>
+                <div class="device-random-row">
+                  <label class="device-random-option">
+                    <input type="radio" name="ttDeviceChoice" value="random-all" checked>
+                    <span>🎲 Random (any device)</span>
+                  </label>
+                  <label class="device-random-option">
+                    <input type="radio" name="ttDeviceChoice" value="random-iphone">
+                    <span>🎲 Random iPhone</span>
+                  </label>
+                  <label class="device-random-option">
+                    <input type="radio" name="ttDeviceChoice" value="random-pixel">
+                    <span>🎲 Random Pixel</span>
+                  </label>
+                </div>
+                <div class="spoof-options">
+                  <label class="spoof-option-toggle">
+                    <input type="checkbox" id="ttSpoofRandomDate" checked>
+                    <span>⏰ Random creation date (last 7 days)</span>
+                  </label>
+                  <label class="spoof-option-toggle">
+                    <input type="checkbox" id="ttSpoofRandomLocation" checked>
+                    <span>📍 Random GPS location tag</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="meta-warning" id="ffmpegWarning" style="display:none;">
+              <span>⚠️</span> FFmpeg not detected. Please install FFmpeg to use this feature.
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn btn-primary" id="downloadBtn" disabled>
+            <span>⚡</span> GOD MODE Download
+          </button>
+        </div>
+
+        <!-- Summary Stats (hidden initially) -->
+        <div class="summary-bar hidden" id="summaryBar">
+          <div class="summary-stat total">
+            <div class="value" id="statTotal">0</div>
+            <div class="label">Total</div>
+          </div>
+          <div class="summary-stat complete">
+            <div class="value" id="statComplete">0</div>
+            <div class="label">Complete</div>
+          </div>
+          <div class="summary-stat downloading">
+            <div class="value" id="statDownloading">0</div>
+            <div class="label">Processing</div>
+          </div>
+          <div class="summary-stat failed">
+            <div class="value" id="statFailed">0</div>
+            <div class="label">Failed</div>
+          </div>
+        </div>
+
+        <!-- Download Queue -->
+        <div class="queue-section hidden" id="queueSection">
+          <div class="queue-header">
+            <h2>⚡ Processing Queue</h2>
+            <button class="btn btn-success hidden" id="downloadAllZipBtn">
+              <span>📦</span> Download All as ZIP
+            </button>
+          </div>
+          <div class="queue-list" id="queueList"></div>
+        </div>
+      </div>
+
+      <!-- ============ UPLOAD MODE ============ -->
+      <div class="mode-content hidden" id="uploadMode">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <label class="input-label">
+            <span class="icon">📤</span>
+            Upload Videos from Device
+          </label>
+          <p class="upload-desc">Select video files to randomize metadata (max 20 files, 500MB each)</p>
+          
+          <!-- Drop Zone -->
+          <div class="upload-dropzone" id="uploadDropzone">
+            <div class="dropzone-content">
+              <div class="dropzone-icon">📁</div>
+              <p class="dropzone-text">Drag & drop videos here</p>
+              <p class="dropzone-subtext">or click to browse</p>
+              <input type="file" id="fileInput" multiple accept="video/*,.mp4,.mov,.avi,.webm,.mkv" hidden>
+            </div>
+          </div>
+
+          <!-- Selected Files List -->
+          <div class="selected-files hidden" id="selectedFilesSection">
+            <div class="selected-files-header">
+              <span><span class="count" id="fileCount">0</span> files selected</span>
+              <button class="btn btn-secondary btn-icon" id="clearFilesBtn" title="Clear all">🗑️</button>
+            </div>
+            <div class="selected-files-list" id="selectedFilesList"></div>
+          </div>
+        </div>
+
+        <!-- Techniques Info -->
+        <div class="meta-info-section">
+          <div class="meta-info-header">
+            <span class="meta-icon">🎲</span>
+            <span>Metadata Randomization Applied</span>
+          </div>
+          <div class="techniques-grid">
+            <div class="technique-item">
+              <span class="tech-icon">👤</span>
+              <span class="tech-name">Random Author</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">🏷️</span>
+              <span class="tech-name">Hidden Tags</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">📝</span>
+              <span class="tech-name">Title Spin</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">📄</span>
+              <span class="tech-name">Shuffle Description</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">🎬</span>
+              <span class="tech-name">Encoding Jitter</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">📡</span>
+              <span class="tech-name">Noise Injection</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">🔲</span>
+              <span class="tech-name">Pixel Shift</span>
+            </div>
+            <div class="technique-item">
+              <span class="tech-icon">🎵</span>
+              <span class="tech-name">Audio Pitch ±0.01</span>
+            </div>
+          </div>
+          <div class="meta-warning" id="ffmpegWarningUpload" style="display:none;">
+            <span>⚠️</span> FFmpeg not detected. Please install FFmpeg to use this feature.
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn btn-primary" id="uploadBtn" disabled>
+            <span>🎲</span> Randomize Metadata
+          </button>
+        </div>
+
+        <!-- Upload Summary Stats -->
+        <div class="summary-bar hidden" id="uploadSummaryBar">
+          <div class="summary-stat total">
+            <div class="value" id="uploadStatTotal">0</div>
+            <div class="label">Total</div>
+          </div>
+          <div class="summary-stat complete">
+            <div class="value" id="uploadStatComplete">0</div>
+            <div class="label">Complete</div>
+          </div>
+          <div class="summary-stat downloading">
+            <div class="value" id="uploadStatProcessing">0</div>
+            <div class="label">Processing</div>
+          </div>
+          <div class="summary-stat failed">
+            <div class="value" id="uploadStatFailed">0</div>
+            <div class="label">Failed</div>
+          </div>
+        </div>
+
+        <!-- Upload Queue -->
+        <div class="queue-section hidden" id="uploadQueueSection">
+          <div class="queue-header">
+            <h2>🎲 Processing Queue</h2>
+            <button class="btn btn-success hidden" id="uploadDownloadAllZipBtn">
+              <span>📦</span> Download All as ZIP
+            </button>
+          </div>
+          <div class="queue-list" id="uploadQueueList"></div>
+        </div>
+      </div>
+
+      <!-- ============ METADATA CHECK MODE ============ -->
+      <div class="mode-content hidden" id="metadataMode">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <label class="input-label">
+            <span class="icon">🔍</span>
+            Check Video Metadata
+          </label>
+          <p class="upload-desc">Upload a video to view its complete metadata information</p>
+          
+          <!-- Drop Zone -->
+          <div class="upload-dropzone" id="metadataDropzone">
+            <div class="dropzone-content">
+              <div class="dropzone-icon">📋</div>
+              <p class="dropzone-text">Drag & drop video here</p>
+              <p class="dropzone-subtext">or click to browse</p>
+              <input type="file" id="metadataFileInput" accept="video/*,.mp4,.mov,.avi,.webm,.mkv" hidden>
+            </div>
+          </div>
+
+          <!-- Selected File -->
+          <div class="selected-files hidden" id="metadataSelectedFile">
+            <div class="selected-files-header">
+              <span>Selected file</span>
+              <button class="btn btn-secondary btn-icon" id="clearMetadataFileBtn" title="Clear">🗑️</button>
+            </div>
+            <div class="selected-files-list" id="metadataFileInfo"></div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn btn-primary" id="checkMetadataBtn" disabled>
+            <span>🔍</span> Check Metadata
+          </button>
+        </div>
+
+        <!-- Loading -->
+        <div class="metadata-loading hidden" id="metadataLoading">
+          <div class="spinner"></div>
+          <span>Reading metadata...</span>
+        </div>
+
+        <!-- Metadata Results -->
+        <div class="metadata-results hidden" id="metadataResults">
+          <h3 class="metadata-section-title">📄 File Information</h3>
+          <div class="metadata-grid" id="fileInfoGrid"></div>
+
+          <h3 class="metadata-section-title">🎬 Video Stream</h3>
+          <div class="metadata-grid" id="videoInfoGrid"></div>
+
+          <h3 class="metadata-section-title">🎵 Audio Stream</h3>
+          <div class="metadata-grid" id="audioInfoGrid"></div>
+
+          <h3 class="metadata-section-title">🏷️ Tags & Metadata</h3>
+          <div class="metadata-grid" id="tagsInfoGrid"></div>
+
+          <div class="metadata-raw-section">
+            <button class="btn btn-secondary" id="toggleRawTags">
+              <span>📜</span> Show Raw Tags
+            </button>
+            <pre class="metadata-raw hidden" id="rawTagsContent"></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ DEVICE SPOOF MODE ============ -->
+      <div class="mode-content hidden" id="deviceSpoofMode">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <label class="input-label">
+            <span class="icon">📱</span>
+            Device Metadata Spoofing
+          </label>
+          <p class="upload-desc">Rewrite video metadata so it looks like it was recorded on an iPhone or Google Pixel (max 20 files, 500MB each)</p>
+
+          <!-- Drop Zone -->
+          <div class="upload-dropzone" id="spoofDropzone">
+            <div class="dropzone-content">
+              <div class="dropzone-icon">📁</div>
+              <p class="dropzone-text">Drag & drop videos here</p>
+              <p class="dropzone-subtext">or click to browse</p>
+              <input type="file" id="spoofFileInput" multiple accept="video/*,.mp4,.mov,.avi,.webm,.mkv" hidden>
+            </div>
+          </div>
+
+          <!-- Selected Files List -->
+          <div class="selected-files hidden" id="spoofSelectedFilesSection">
+            <div class="selected-files-header">
+              <span><span class="count" id="spoofFileCount">0</span> files selected</span>
+              <button class="btn btn-secondary btn-icon" id="spoofClearFilesBtn" title="Clear all">🗑️</button>
+            </div>
+            <div class="selected-files-list" id="spoofSelectedFilesList"></div>
+          </div>
+        </div>
+
+        <!-- Device Selection -->
+        <div class="device-select-section">
+          <div class="device-select-header">
+            <span class="meta-icon">📱</span>
+            <span>Choose Device</span>
+          </div>
+
+          <div class="device-brand-tabs">
+            <button class="device-brand-tab active" data-brand="iphone">🍎 iPhone</button>
+            <button class="device-brand-tab" data-brand="pixel">🤖 Google Pixel</button>
+          </div>
+
+          <div class="device-grid" id="deviceGrid"></div>
+
+          <div class="device-random-row">
+            <label class="device-random-option">
+              <input type="radio" name="deviceChoice" value="random-all" checked>
+              <span>🎲 Random (any device)</span>
+            </label>
+            <label class="device-random-option">
+              <input type="radio" name="deviceChoice" value="random-iphone">
+              <span>🎲 Random iPhone</span>
+            </label>
+            <label class="device-random-option">
+              <input type="radio" name="deviceChoice" value="random-pixel">
+              <span>🎲 Random Pixel</span>
+            </label>
+          </div>
+
+          <!-- Extra Options -->
+          <div class="spoof-options">
+            <label class="spoof-option-toggle">
+              <input type="checkbox" id="spoofRandomDate" checked>
+              <span>⏰ Random creation date (last 7 days)</span>
+            </label>
+            <label class="spoof-option-toggle">
+              <input type="checkbox" id="spoofRandomLocation" checked>
+              <span>📍 Random GPS location tag</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn btn-primary" id="spoofBtn" disabled>
+            <span>📱</span> Spoof Device Metadata
+          </button>
+        </div>
+
+        <!-- Spoof Summary Stats -->
+        <div class="summary-bar hidden" id="spoofSummaryBar">
+          <div class="summary-stat total">
+            <div class="value" id="spoofStatTotal">0</div>
+            <div class="label">Total</div>
+          </div>
+          <div class="summary-stat complete">
+            <div class="value" id="spoofStatComplete">0</div>
+            <div class="label">Complete</div>
+          </div>
+          <div class="summary-stat downloading">
+            <div class="value" id="spoofStatProcessing">0</div>
+            <div class="label">Processing</div>
+          </div>
+          <div class="summary-stat failed">
+            <div class="value" id="spoofStatFailed">0</div>
+            <div class="label">Failed</div>
+          </div>
+        </div>
+
+        <!-- Spoof Queue -->
+        <div class="queue-section hidden" id="spoofQueueSection">
+          <div class="queue-header">
+            <h2>📱 Processing Queue</h2>
+            <button class="btn btn-success hidden" id="spoofDownloadAllZipBtn">
+              <span>📦</span> Download All as ZIP
+            </button>
+          </div>
+          <div class="queue-list" id="spoofQueueList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STEP 2: WATERMARK & FRAME ============ -->
+    <section class="visual-editor hidden" id="visualEditor" aria-labelledby="visualEditorTitle">
+      <div class="visual-step-head">
+        <div><span class="eyebrow">BATCH STUDIO · STEP 2</span><h2 id="visualEditorTitle">Watermark & Frame</h2><p><strong id="visualReadyCount">0</strong> video siap diproses · Satu template untuk seluruh batch</p></div>
+        <button class="btn btn-secondary" id="visualBackBtn">← Kembali</button>
+      </div>
+      <div class="template-toolbar">
+        <label>Template <select id="templateSelect"></select></label>
+        <button class="btn btn-secondary" id="templateNewBtn">＋ Simpan Baru</button>
+        <button class="btn btn-secondary" id="templateUpdateBtn">💾 Update</button>
+        <button class="btn btn-secondary" id="templateDuplicateBtn">⧉ Duplikat</button>
+        <button class="btn btn-secondary" id="templateRenameBtn">✎ Ubah Nama</button>
+        <button class="btn btn-secondary" id="templateDefaultBtn">★ Default</button>
+        <button class="btn btn-danger" id="templateDeleteBtn">Hapus</button>
+      </div>
+      <div class="editor-grid">
+        <div class="preview-column">
+          <div class="preview-toolbar"><button id="previewPrevBtn" aria-label="Video sebelumnya">←</button><select id="previewVideoSelect"></select><button id="previewNextBtn" aria-label="Video berikutnya">→</button></div>
+          <div class="video-stage" id="videoStage"><video id="visualPreviewVideo" controls playsinline></video><img id="watermarkPreview" alt="Preview watermark"><div id="framePreview" aria-hidden="true"></div></div>
+          <div class="preview-meta" id="previewMeta">Pilih video untuk preview</div>
+        </div>
+        <div class="inspector">
+          <details open><summary><span>Watermark</span><label class="switch-label"><input type="checkbox" id="wmEnabled"> ON</label></summary>
+            <div class="control-grid">
+              <label class="wide">Aset <select id="wmAsset"></select></label><button class="upload-asset" id="wmUploadBtn">Upload PNG / WEBP</button><input type="file" id="wmFile" accept="image/png,image/jpeg,image/webp" hidden>
+              <label>Size <output id="wmSizeOut">18%</output><input type="range" id="wmSize" min="1" max="100" value="18"></label>
+              <label>Opacity <output id="wmOpacityOut">72%</output><input type="range" id="wmOpacity" min="0" max="100" value="72"></label>
+              <label>Rotation <output id="wmRotationOut">0°</output><input type="range" id="wmRotation" min="-180" max="180" value="0"></label>
+              <label>X ratio <input type="number" id="wmX" min="0" max="1" step="0.01" value="0.78"></label><label>Y ratio <input type="number" id="wmY" min="0" max="1" step="0.01" value="0.84"></label>
+              <label>Margin X <input type="number" id="wmMarginX" min="0" value="20"></label><label>Margin Y <input type="number" id="wmMarginY" min="0" value="20"></label>
+              <label class="wide check"><input type="checkbox" id="wmLock" checked> Lock aspect ratio</label>
+            </div>
+            <div class="position-grid" id="wmPositions"><button data-x="0" data-y="0">↖</button><button data-x=".5" data-y="0">↑</button><button data-x="1" data-y="0">↗</button><button data-x="0" data-y=".5">←</button><button data-x=".5" data-y=".5">•</button><button data-x="1" data-y=".5">→</button><button data-x="0" data-y="1">↙</button><button data-x=".5" data-y="1">↓</button><button data-x="1" data-y="1">↘</button></div>
+            <button class="reset-link" id="wmResetBtn">Reset watermark</button>
+          </details>
+          <details open><summary><span>Frame</span><label class="switch-label"><input type="checkbox" id="frameEnabled"> ON</label></summary>
+            <div class="preset-row" id="framePresets"><button data-type="solid" class="active">Solid</button><button data-type="gradient">Gradient</button><button data-type="glow">Glow</button><button data-type="progress">Progress</button><button data-type="polaroid">Polaroid</button></div>
+            <div class="control-grid"><label>Unit <select id="frameUnit"><option value="percent">Percent</option><option value="pixel">Pixel</option></select></label><label>Thickness <input id="frameThickness" type="number" min=".1" max="40" step=".1" value="2.5"></label><label>Color <input id="frameColor" type="color" value="#ffffff"></label><label>Accent <input id="frameColor2" type="color" value="#22d3ee"></label><label>Opacity <input id="frameOpacity" type="range" min="0" max="100" value="100"></label><label>Radius <input id="frameRadius" type="number" min="0" max="50" value="0"></label><label>Glow <input id="frameGlow" type="range" min="0" max="60" value="18"></label><label>Polaroid bottom <input id="framePolaroid" type="number" min="1" max="40" value="8"></label></div>
+            <button class="reset-link" id="frameResetBtn">Reset frame</button>
+          </details>
+        </div>
+      </div>
+      <div class="apply-bar"><div><span class="live-dot"></span><strong id="applyTarget">0 video</strong><small> Snapshot konfigurasi dibuat saat worker dimulai</small></div><button class="btn btn-primary" id="applyVisualBtn">⚡ Terapkan Template ke Semua Video</button></div>
+      <div class="visual-progress-panel hidden" id="visualProgressPanel"><div class="queue-header"><div><span class="eyebrow">VISUAL WORKER</span><h2>Watermark & Frame Processing</h2></div><span class="worker-pill">Concurrency <b id="visualConcurrency">2</b></span></div><div class="visual-stats"><div><b id="vTotal">0</b><span>Total</span></div><div><b id="vComplete">0</b><span>Complete</span></div><div><b id="vProcessing">0</b><span>Processing</span></div><div><b id="vWaiting">0</b><span>Waiting</span></div><div><b id="vFailed">0</b><span>Failed</span></div></div><div class="overall-track"><div id="visualOverallBar"></div></div><div id="visualQueue" class="visual-queue"></div><div class="result-actions"><button class="btn btn-secondary hidden" id="visualRetryBtn">🔁 Retry Failed</button><button class="btn btn-success hidden" id="visualZipBtn">📦 Download Final ZIP</button><button class="btn btn-secondary hidden" id="visualRerenderBtn">🎨 Edit Template & Render Ulang</button></div></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>⚡ TTGODMODE — TikTok Download + Metadata Randomizer</p>
+    </footer>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

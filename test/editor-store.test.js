@@ -1,0 +1,5 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),os=require('os'),path=require('path');
+const {EditorStore,normalizeSettings}=require('../lib/editor-store');
+test('normalizes visual settings safely',()=>{const s=normalizeSettings({watermark:{size:9,x:-2,opacity:.5},frame:{type:'bad',thickness:99}});assert.equal(s.watermark.size,1);assert.equal(s.watermark.x,0);assert.equal(s.frame.type,'solid');assert.equal(s.frame.thickness,40);});
+test('template CRUD, duplicate and default persist',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'editor-'));const store=new EditorStore(dir),created=store.create({name:'Brand',frame:{enabled:true}});assert.equal(store.get(created.id).name,'Brand');const updated=store.update(created.id,{name:'Brand 2'});assert.equal(updated.version,2);const copy=store.duplicate(created.id);store.setDefault(copy.id);assert.equal(store.get(copy.id).isDefault,true);store.remove(created.id);assert.equal(store.get(created.id),undefined);fs.rmSync(dir,{recursive:true,force:true});});

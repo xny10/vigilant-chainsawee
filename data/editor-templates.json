@@ -1,0 +1,178 @@
+[
+  {
+    "id": "tpl_default",
+    "name": "Clean Canvas",
+    "version": 1,
+    "isDefault": true,
+    "watermark": {
+      "enabled": false,
+      "assetId": null,
+      "size": 0.18,
+      "opacity": 0.72,
+      "rotation": 0,
+      "x": 0.78,
+      "y": 0.84,
+      "marginX": 20,
+      "marginY": 20,
+      "lockAspect": true
+    },
+    "frame": {
+      "enabled": false,
+      "type": "solid",
+      "unit": "percent",
+      "thickness": 2.5,
+      "linkedSides": true,
+      "top": 2.5,
+      "right": 2.5,
+      "bottom": 2.5,
+      "left": 2.5,
+      "color": "#ffffff",
+      "colors": [
+        "#8b5cf6",
+        "#22d3ee"
+      ],
+      "angle": 45,
+      "opacity": 1,
+      "radius": 0,
+      "glow": 18,
+      "progressColor": "#22d3ee",
+      "polaroidBottom": 8
+    },
+    "output": {
+      "crf": 19,
+      "preset": "veryfast"
+    }
+  },
+  {
+    "id": "tpl_5cb9d188017e",
+    "name": "DBH",
+    "version": 1,
+    "isDefault": false,
+    "watermark": {
+      "enabled": true,
+      "assetId": "wm_c9065ee7-b06",
+      "size": 0.57,
+      "opacity": 1,
+      "rotation": 0,
+      "x": 0.5,
+      "y": 0.9,
+      "marginX": 20,
+      "marginY": 20,
+      "lockAspect": true
+    },
+    "frame": {
+      "enabled": true,
+      "type": "gradient",
+      "unit": "percent",
+      "thickness": 0.5,
+      "linkedSides": true,
+      "top": 2.5,
+      "right": 2.5,
+      "bottom": 2.5,
+      "left": 2.5,
+      "color": "#fbe913",
+      "colors": [
+        "#fbe913",
+        "#1ce60b"
+      ],
+      "angle": 45,
+      "opacity": 1,
+      "radius": 0,
+      "glow": 18,
+      "progressColor": "#1ce60b",
+      "polaroidBottom": 8
+    },
+    "output": {
+      "crf": 19,
+      "preset": "veryfast"
+    }
+  },
+  {
+    "id": "tpl_17c0a8fce82a",
+    "name": "KHK",
+    "version": 1,
+    "isDefault": false,
+    "watermark": {
+      "enabled": true,
+      "assetId": "wm_026fdfee-261",
+      "size": 0.55,
+      "opacity": 1,
+      "rotation": 0,
+      "x": 0.5,
+      "y": 0.859,
+      "marginX": 20,
+      "marginY": 20,
+      "lockAspect": true
+    },
+    "frame": {
+      "enabled": true,
+      "type": "gradient",
+      "unit": "pixel",
+      "thickness": 0.9,
+      "linkedSides": true,
+      "top": 2.5,
+      "right": 2.5,
+      "bottom": 2.5,
+      "left": 2.5,
+      "color": "#ffffff",
+      "colors": [
+        "#ffffff",
+        "#ff7b00"
+      ],
+      "angle": 45,
+      "opacity": 1,
+      "radius": 0,
+      "glow": 18,
+      "progressColor": "#ff7b00",
+      "polaroidBottom": 8
+    },
+    "output": {
+      "crf": 19,
+      "preset": "veryfast"
+    }
+  },
+  {
+    "id": "tpl_9116fa02bca5",
+    "name": "bening",
+    "version": 1,
+    "isDefault": false,
+    "watermark": {
+      "enabled": true,
+      "assetId": "wm_371134c9-04f",
+      "size": 0.64,
+      "opacity": 1,
+      "rotation": 0,
+      "x": 0.5,
+      "y": 0.9,
+      "marginX": 20,
+      "marginY": 20,
+      "lockAspect": true
+    },
+    "frame": {
+      "enabled": true,
+      "type": "gradient",
+      "unit": "pixel",
+      "thickness": 1.5,
+      "linkedSides": true,
+      "top": 2.5,
+      "right": 2.5,
+      "bottom": 2.5,
+      "left": 2.5,
+      "color": "#ff0000",
+      "colors": [
+        "#ff0000",
+        "#fe9258"
+      ],
+      "angle": 45,
+      "opacity": 1,
+      "radius": 0,
+      "glow": 18,
+      "progressColor": "#fe9258",
+      "polaroidBottom": 8
+    },
+    "output": {
+      "crf": 19,
+      "preset": "veryfast"
+    }
+  }
+]
